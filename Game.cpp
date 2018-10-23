@@ -15,17 +15,19 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		m_bRunning = true;
 		TheTextureManager::Instance()->load("Assets/animate-alpha.png", "animate", m_pRenderer);
 
-		m_go = new GameObject();
-		m_player = new Player();
-		m_enemy = new Enemy();
+		
+		m_monster1 = new Monster();
+		m_monster2 = new Monster();
 
-		m_go->load(100, 100, 128, 82, "animate");
-		m_player->load(300, 300, 128, 82, "animate");
-		m_enemy->load(0, 0, 128, 82, "animate");
+		m_monster1->setSpeed(1);
+		m_monster2->setSpeed(3);
 
-		m_gameObjects.push_back(m_go);
-		m_gameObjects.push_back(m_player);
-		m_gameObjects.push_back(m_enemy);
+		m_monster1->load(100, 100, 128, 82, "animate");
+		m_monster2->load(100, 200, 128, 82, "animate");
+
+		m_gameObjects.push_back(m_monster1);
+		m_gameObjects.push_back(m_monster2);
+
 		SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
 	}
 	else {

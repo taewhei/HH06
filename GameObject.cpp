@@ -29,3 +29,7 @@ void GameObject::update()
 void GameObject::clean()
 {
 }
+void GameObject::setSpeed(int Speed)
+{
+	speed = Speed;
+}
